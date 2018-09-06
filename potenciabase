@@ -1,0 +1,18 @@
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    int base, pot;
+    cout<<"Base:  ";
+    cin>>base;
+    cout<<"Potencia:  ";
+    cin>>pot;
+    int res=1;
+    while (pot>0){
+        res=base*res;
+        pot--;
+    }
+    cout<<"RESULTADO: "<<res;
+    return 0;
+}
