@@ -1,0 +1,22 @@
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    int numero,fact=1;
+    cout<<"ingresa un numero"<<endl;
+    cin>>numero;
+    if(numero<19)
+    {
+        while(numero>0)
+        {
+            fact=fact*numero;
+            numero=numero-1;
+
+        }
+        cout<<"FACTORIAL: "<<fact;
+    }
+
+
+    return 0;
+}
