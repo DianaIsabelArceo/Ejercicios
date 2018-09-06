@@ -1,0 +1,26 @@
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    int pob_a=62000, pob_b=80000;
+    pob_a=pob_a+(pob_a*0.06);
+    pob_b=pob_b+(pob_b*0.03);
+    cout<<"PRIMER AÑOS"<<endl;
+    cout<<"Poblacion A:  "<<pob_a<<endl;
+    cout<<"Poblacion B:  "<<pob_b<<endl;
+    int anos=1;
+    do
+    {
+        pob_a=pob_a+(pob_a*0.06);
+        pob_b=pob_b+(pob_b*0.03);
+        anos++;
+    }
+    while(pob_a<pob_b);
+     cout<<"_______________________________"<<endl;
+    cout<<"Pasaron "<<anos<<" años"<<endl;
+    cout<<"Poblacion A:  "<<pob_a<<endl;
+    cout<<"Poblacion B:  "<<pob_b<<endl;
+
+    return 0;
+}
