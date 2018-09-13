@@ -1,0 +1,107 @@
+#include <iostream>
+using namespace std;
+
+  float factorial(float numero);
+  float potencia(float pot, float base);
+
+
+int main()
+{
+    float numero,stop;
+    int opc;
+    cout<<"ingresa un numero"<<endl;
+    cin>>numero;
+    cout<<"ingresa el hasta donde desea detenerse"<<endl;
+    cin>>stop;
+    cout<<"Opcion:"<<endl;
+    cout<<"1) Coseno:"<<endl;
+    cout<<"2) Logaritmo natural:"<<endl;
+    cout<<"3) Seno:"<<endl;
+
+    cin>>opc;
+    switch(opc)
+    {
+        case 1:
+              {
+                float sum=0,ter;
+                for(int i=2,con=1;con<=stop;i+=2,con++)
+                {
+                    ter=(potencia(i,numero)/factorial(i));
+                    if(con%2==0)
+                        {
+                        sum+=ter;
+                        cout<<"+"<<potencia(i,numero)<<"/"<<factorial(i)<<endl;
+                        }
+                    else
+                    {
+                        sum-=ter;
+                        cout<<"-"<<potencia(i,numero)<<"/"<<factorial(i)<<endl;
+                    }
+                }
+                cout<<"Resultado "<<1+(sum)<<endl;
+
+              }
+        break;
+        case 2:
+              {
+                float sum=0,ter,bas;
+                for(int i=1;i<=stop;i++)
+                {
+                    bas=(numero-1.0)/numero;
+                    ter=(1.0/i)*potencia(i,bas);
+                    sum+=ter;
+
+                }
+                cout<<"Resultado "<<sum<<endl;
+
+              }
+        break;
+        case 3:
+              {
+                float sum=0,ter;
+                for(int i=3,con=1;con<=stop;i+=2,con++)
+                {
+                    ter=(potencia(i,numero)/factorial(i));
+                    if(con%2==0)
+                    {
+                        sum+=ter;
+                        cout<<"+"<<potencia(i,numero)<<"/"<<factorial(i)<<endl;
+                    }
+                        else
+                    {
+                        sum-=ter;
+                        cout<<"-"<<potencia(i,numero)<<"/"<<factorial(i)<<endl;
+                    }
+                }
+                cout<<"Resultado "<<1+(sum)<<endl;
+
+              }
+        break;
+        default:
+                cout<<"Opcion incorrecta";
+    }
+}
+    float factorial(float numero)
+{
+    int fact=1.0;
+    if(numero>0)
+    {
+        while(numero>0)
+        {
+            fact=fact*numero;
+            numero=numero-1.0;
+        }
+    }
+    return fact;
+}
+    float potencia(float pot, float base)
+{
+    float n=0.4;
+    float res=1.0;
+    while (pot>0){
+        res=base*res;
+        pot--;
+    }
+
+    return res;
+}
