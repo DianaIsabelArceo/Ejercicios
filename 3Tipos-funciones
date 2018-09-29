@@ -1,0 +1,117 @@
+#include <iostream>
+#include<cmath>
+using namespace std;
+
+float funcion1(float x);
+float funcion2(int x,int y);
+float funcion3(int x);
+void tabular(int opc);
+void tabular2(int opc);
+int menu();
+
+int main()
+{
+    int opc;
+    do{
+    opc= menu();
+
+    switch(opc)
+    {
+        case 1:
+               tabular(opc);
+        break;
+        case 2:
+               tabular2(opc);
+        break;
+        case 3:
+                tabular(opc);
+        break;
+        case 4:
+               cout<<"DECIDIO SALIR"<<endl;
+        break;
+        default:cout<<"error"<<endl;
+
+    }
+    }    while(opc!=4);
+
+
+    return 0;
+}
+
+int menu()
+{
+
+    int opc,x;
+    cout<<"1) FUNCION 1"<<endl;
+    cout<<"2) FUNCION 2"<<endl;
+    cout<<"3) FUNCION 3"<<endl;
+    cout<<"4) SALIR "<<endl;
+    cin>>opc;
+
+    return opc;
+
+}
+
+float funcion1(float x)
+{
+    float r=0.0;
+    r=(2*(pow(x,0.66667)))/((2*x)-3);
+    return r;
+}
+float funcion2(int x,int y)
+{
+    float r=0.0;
+    r=(2*x*y)-(3*y);
+    return r;
+}
+float funcion3(int x)
+{
+    float r=0.0;
+    if(x>0)
+    {
+        r=2*(pow(x,3));
+
+    }
+    else
+    {
+        r=3*(pow(x,2));
+    }
+    return r;
+}
+void tabular(int opc)
+{
+    int s;
+    cout <<"limite superior:  ";
+    cin>>s;
+    if(opc==1)
+    {
+        for(int x=0;x<=s;x++)
+        {
+            cout<<x<<"  "<<funcion1(x)<<endl;
+        }
+    }
+    if(opc==3)
+    {
+        if(s>0)
+        {
+           for(int x=0;x<=s;x++)
+            {
+                cout<<x<<"  "<<funcion3(x)<<endl;
+            }
+        }
+        else
+            for(int x=s;x<=0;x++)
+                {
+                    cout<<x<<"  "<<funcion3(x)<<endl;
+                }
+    }
+}
+void tabular2(int opc)
+{
+    cout<<"x| y|  f(x,y)"<<endl;
+                for(int x=1;x<=5;x++)
+                    for(int y=1;y<=5;y++)
+                    {
+                        cout<<x<<"| "<<y<<"|  "<<funcion2(x,y)<<endl;
+                    }
+}
