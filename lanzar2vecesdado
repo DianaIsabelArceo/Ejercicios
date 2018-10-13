@@ -1,0 +1,45 @@
+#include <iostream>
+#include <cstdlib>
+#include <ctime>
+using namespace std;
+void histograma(int num);
+int lanzardado();
+int main()
+{
+    int v[12]={0},suma=0,cara=0;
+    srand(time(NULL));
+    for(int x=1;x<=100;x++)
+    {
+        suma=lanzardado()+lanzardado();
+        v[suma-1]++;
+    }
+    for(int x=0;x<=11;x++)
+    {
+        cout<<"suma de cara dio "<<(x+1)<<"= "<<v[x]<<" veces"<<endl;
+    }
+
+     for(int x=0;x<=8;x++)
+    {
+        cout<<(x+1)<<"     | "; histograma(v[x]); cout<<endl;
+    }
+     for(int x=9;x<=11;x++)
+    {
+        cout<<(x+1)<<"    | ";histograma(v[x]); cout<<endl;
+    }
+
+    cout<<"SUMA   VECES";
+    return 0;
+}
+int lanzardado()
+{
+    int c;
+    c= 1+rand()%6;
+    return c;
+}
+void histograma(int valor)
+{
+    for(int i=1;i<=valor;i++)
+    {
+        cout<<"*";
+    }
+}
