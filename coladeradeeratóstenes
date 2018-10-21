@@ -1,0 +1,56 @@
+#include <iostream>
+#include <cmath>
+using namespace std;
+void esprimo(int v[], int tam);
+void indializar(int v[], int tam);
+void mostrar(int v[], int tam);
+
+int main()
+{
+    int v[1000];
+    indializar(v,1000);
+    esprimo(v,1000);
+    mostrar(v,1000);
+    return 0;
+}
+void indializar(int v[], int tam)
+{
+    int res;
+    for(int x=0;x<tam;x++)
+    {
+        v[x]=1;
+    }
+}
+void esprimo(int v[], int tam)
+{
+
+    for(int x=2;x<(sqrt(tam));x++)
+    {
+        if(v[x]==1)
+        {
+           for(int j=x+1;j<tam;j++)
+            {
+                if(j%x==0)
+                {
+                    v[j]=0;
+                }
+            }
+        }
+    }
+}
+void mostrar(int v[], int tam)
+{
+    int res;
+    for(int x=0;x<tam;x++)
+    {
+        if(v[x]==0)
+        {
+            cout<<v[x]<<endl;
+        }
+        else
+        {
+            v[x]=x;
+            cout<<v[x]<<endl;
+        }
+    }
+}
