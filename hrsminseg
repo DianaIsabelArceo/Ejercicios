@@ -1,0 +1,38 @@
+#include <iostream>
+using namespace std;
+int segundostotales(int hrs, int min, int seg);
+void mostrarhora(int totalseg);
+int main()
+{
+    int hrs,min,seg;
+    cout<<"Ingresa las hrs:  ";
+    cin>>hrs;
+    cout<<"Ingresa los min:  ";
+    cin>>min;
+    cout<<"Ingresa los segundos:  ";
+    cin>>seg;
+    
+    cout<<segundostotales(hrs,min,seg)<<" segundos"<<endl;
+    mostrarhora(segundostotales(hrs,min,seg));
+
+    return 0;
+}
+int segundostotales(int hrs, int min, int seg)
+{
+    int totalseg=0;
+    hrs=hrs*3600;
+    min=min*60;
+    totalseg=hrs+min+seg;
+    return totalseg;
+}
+
+void mostrarhora(int totalseg)
+{
+    int hrs=0,min=0, seg=0;
+    hrs=totalseg/3600;
+    min=totalseg%3600;
+    seg=min%60;
+    min=min/60;
+    
+    cout<<hrs<<"h "<<min<<" min "<<seg<< "seg"; 
+}
