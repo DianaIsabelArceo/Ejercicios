@@ -1,0 +1,121 @@
+#include <iostream>
+using namespace std;
+
+//void hojas(int ventas[][5], int producto);
+void venta(int ventas[][5], int vendedor, int producto, int precio);
+int busca(int ventas[][5], int ven, int pro);
+void suma(int ventas[][5], int ven, int pro, int pre);
+void tabla(int ventas[][5], int producto);
+int menu();
+int main()
+{
+    int opc,ventas[6][5]={{0}};
+
+
+        do
+    {
+        opc=menu();
+        switch(opc)
+        {
+            case 1:
+                   int ven,pro,precio;
+                    cout<<"Ingrese el vendedor 1 a 4 "<<endl;
+                    cin>>ven;
+                    cout<<"Ingrese el producto 1 a 5 "<<endl;
+                    cin>>pro;
+                    cout<<"Ingrese el precio del producto: "<<endl;
+                    cin>>precio;
+                    int x;
+                    x=busca(ventas,ven,pro);
+                    if(x==0)
+                    {
+                        venta(ventas,ven,pro,precio);
+                    }
+                    else
+                    {
+                        cout<<"HAY numero"<<endl;
+                        cout<<ventas[pro-1][ven-1]<<endl;
+                        suma(ventas,ven,pro,precio);
+                    }
+            break;
+            case 2:
+                    tabla(ventas,5);
+            break;
+            case 0:
+                    cout<<"A decicido salir"<<endl;
+            break;
+        }
+
+    }
+    while(opc!=0);
+    return 0;
+}
+int menu()
+{
+    int opc;
+    cout<< "1.- Agregar "<<endl;
+    cout<< "2.- Mostrar"<<endl;
+    cout<< "0.- salir"<<endl;
+    cin>>opc;
+    return opc;
+}
+int busca(int ventas[][5], int ven, int pro)
+{
+    if(ventas[pro-1][ven-1]!=0)
+    {
+        return 1;
+    }
+    else
+    {
+        return 0;
+    }
+}
+void suma(int ventas[][5], int ven, int pro, int pre)
+{
+    int aux=0,suma=0;
+    aux=ventas[pro-1][ven-1];
+    ventas[pro-1][ven-1]=pre;
+    suma=aux+ventas[pro-1][ven-1];
+    ventas[pro-1][ven-1]=suma;
+
+}
+void venta(int ventas[][5], int ven, int pro, int pre)
+{
+    ventas[pro-1][ven-1]=pre;
+}
+void tabla(int ventas[][5], int producto)
+{
+     for(int x=0;x<producto;x++)
+    {
+        int sum=0;
+        for(int z=0;z<4;z++)
+        {
+            sum=sum+ventas[x][z];
+            ventas[x][4]=sum;
+        }
+    }
+     for(int x=0;x<4;x++)
+    {
+        int sum1=0;
+        for(int z=0;z<producto;z++)
+        {
+            sum1=sum1+ventas[z][x];
+            ventas[5][x]=sum1;
+        }
+    }
+
+    cout<<"    VENDEDORES"<<endl;
+    cout<<"     1----2----3----4"<<endl;
+    ventas[5][4]=0;
+    for(int x=0;x<6;x++)
+    {
+        cout<<"P"<<x+1<<"|  ";
+        for(int z=0;z<5;z++)
+        {
+           // cout<<x<<"x - z"<<z<<endl;
+            cout<<ventas[x][z]<<"    ";
+
+        }
+        cout<<endl;
+    }
+}
